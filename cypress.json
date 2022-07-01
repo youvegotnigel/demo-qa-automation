@@ -1,0 +1,12 @@
+{
+    "baseUrl": "https://qa.eshrewd.net/admin/auth/login",
+    "testFiles": ["**/*.{feature,features}"],
+    "viewportHeight" : 1080,
+    "viewportWidth" : 1920,
+    "env": {
+        "email": "Diego",
+        "password":"test",
+        "username": "Diego Duarte",
+        "TAGS": "@stage and not @ignore"
+    }
+}
