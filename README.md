@@ -176,7 +176,7 @@ npm run cy:report
 npm run allure:report
 ```  
 
-#### Run Specific Feature with Percy Vishual Testing
+#### Run Specific Feature with Percy Visual Testing
 ```
 npm run allure:clear
 $env:PERCY_TOKEN = "<token>"
