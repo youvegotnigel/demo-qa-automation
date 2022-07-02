@@ -4,7 +4,6 @@ import  loginPage from '../../../support/page-objects/Login_Page'
 
 Given('User is logged into TS Admin',()=>{
     loginPage.logInSucessfully();
-    cy.wait(2000)
 });
 
 Given('User is navigated to login page',()=>{

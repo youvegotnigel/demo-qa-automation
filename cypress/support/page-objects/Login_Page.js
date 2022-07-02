@@ -10,6 +10,7 @@ class LoginPage{
 
     static navigateToLoginPage() {
         cy.visit('/');
+        cy.percySnapshot('Login Page');
     }
     
     static typeUsername(username){
@@ -30,8 +31,10 @@ class LoginPage{
 
     static isLoggedIn(user){
         this.elements.loggedUser().should('include.text', user);
-        //cy.url().should('contain', 'global-admin/contracts')
-        //cy.url().should('include', 'global-admin/contracts')
+        cy.url().should('contain', Cypress.env('landing_page'));
+        cy.url().should('include', Cypress.env('landing_page'));
+        cy.wait(2000);
+        cy.percySnapshot('Golbal Admin Page');
     }
 
     static logInSucessfully(){
@@ -40,6 +43,8 @@ class LoginPage{
         this.typePassword(Cypress.env('password'));
         this.clickLogin();
         this.isLoggedIn(Cypress.env('username'));
+        cy.wait(2000);
+        cy.percySnapshot('Landing Page');
     }
 }
 
