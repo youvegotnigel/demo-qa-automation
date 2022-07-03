@@ -1,4 +1,6 @@
-class LoginPage{
+import  BasePage from '../../../support/page-objects/Base_Page'
+
+class LoginPage extends BasePage{
 
     static elements = {
         usernameInput: () => cy.xpath('//input[@placeholder=\'Email\']'),
