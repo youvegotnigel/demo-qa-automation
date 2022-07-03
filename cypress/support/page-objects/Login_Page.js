@@ -1,4 +1,6 @@
-class LoginPage{
+import  BasePage from '../../support/page-objects/Base_Page'
+
+class LoginPage extends BasePage{
 
     static elements = {
         usernameInput: () => cy.xpath('//input[@placeholder=\'Email\']'),
@@ -10,6 +12,7 @@ class LoginPage{
 
     static navigateToLoginPage() {
         cy.visit('/');
+        cy.percySnapshot('Login Page');
     }
     
     static typeUsername(username){
@@ -30,16 +33,46 @@ class LoginPage{
 
     static isLoggedIn(user){
         this.elements.loggedUser().should('include.text', user);
-        //cy.url().should('contain', 'global-admin/contracts')
-        //cy.url().should('include', 'global-admin/contracts')
+        cy.url().should('contain', Cypress.env('landing_page'));
+        cy.url().should('include', Cypress.env('landing_page'));
+        cy.wait(2000);
+        cy.percySnapshot('Golbal Admin Page');
     }
 
     static logInSucessfully(){
+
         this.navigateToLoginPage();
+
+        //TODO: This method needs tobe updated such that:
+        //      If user is logged in then return
+        //      Else provide login credentials to login sucessfully
+                
+        /*
+        if(this.elements.loggedUser().should('include.text', Cypress.env('username'))){
+            return {};
+        }
+
+        cy.get('body').then($user => {
+            if($user.find(this.elements.loggedUser).length>0){
+                return {};
+            }
+            cy.wrap(this.typeUsername(Cypress.env('email')));
+            this.typePassword(Cypress.env('password'));
+            this.clickLogin();
+            this.isLoggedIn(Cypress.env('username'));
+            cy.wait(2000);
+            cy.percySnapshot('Landing Page');
+        })
+        */
+
+        
         this.typeUsername(Cypress.env('email'));
         this.typePassword(Cypress.env('password'));
         this.clickLogin();
         this.isLoggedIn(Cypress.env('username'));
+        cy.wait(2000);
+        cy.percySnapshot('Landing Page');
+
     }
 }
 

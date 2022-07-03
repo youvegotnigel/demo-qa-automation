@@ -7,6 +7,7 @@
         "email": "Diego",
         "password":"test",
         "username": "Diego Duarte",
+        "landing_page": "global-admin/contracts",
         "TAGS": "@stage and not @ignore"
     }
 }

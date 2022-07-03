@@ -15,6 +15,7 @@ npm install cypress-cucumber-preprocessor
 npm install multiple-cucumber-html-reporter 
 npm install --save-dev cypress-cucumber-attach-screenshots-to-failed-steps 
 npm i @shelex/cypress-allure-plugin
+npm install --save-dev @percy/cli @percy/cypress
 ```  
 
 ## Cypress Help
@@ -172,7 +173,17 @@ npx cypress-tags run -g 'cypress/integration/LoginTest/Login.feature' --browser 
 or
 npx cypress-tags run --browser "chrome" -e tags=@stage --spec "cypress/integration/LoginTest/Login.feature" --env configFile=qa
 npm run cy:report
+npm run allure:report
 ```  
+
+#### Run Specific Feature with Percy Visual Testing
+```
+npm run allure:clear
+$env:PERCY_TOKEN = "<token>"
+npx cypress-tags run --browser "chrome" -e tags=@stage --spec "cypress/integration/LoginTest/Login.feature" --env configFile=qa
+npm run cy:report
+npm run allure:report
+``` 
 
 ## Cucumber Report
 

@@ -3,6 +3,7 @@
         "email": "madhub",
         "password":"test",
         "username": "Madhu Bhor",
+        "landing_page": "global-admin/contracts",
         "TAGS": "@stage and not @ignore"
     }
 }
