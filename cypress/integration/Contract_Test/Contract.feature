@@ -4,7 +4,7 @@ Feature: Contract Scenarios
         Given User is logged into TS Admin
 
     @stage
-    Scenario: Create a contract
+    Scenario Outline: Create a contract
         Given User click on the 'Add New Contract' link
         And User enter details as below:
             | Name   | Description[textarea] | Product[suggest] | Add new users[suggest] | Start Date  | End Date  |

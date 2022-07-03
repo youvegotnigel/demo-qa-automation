@@ -1,4 +1,4 @@
-import  BasePage from '../../../support/page-objects/Base_Page'
+import  BasePage from '../../support/page-objects/Base_Page'
 
 class LoginPage extends BasePage{
 
@@ -40,13 +40,39 @@ class LoginPage extends BasePage{
     }
 
     static logInSucessfully(){
+
         this.navigateToLoginPage();
+
+        //TODO: This method needs tobe updated such that:
+        //      If user is logged in then return
+        //      Else provide login credentials to login sucessfully
+                
+        /*
+        if(this.elements.loggedUser().should('include.text', Cypress.env('username'))){
+            return {};
+        }
+
+        cy.get('body').then($user => {
+            if($user.find(this.elements.loggedUser).length>0){
+                return {};
+            }
+            cy.wrap(this.typeUsername(Cypress.env('email')));
+            this.typePassword(Cypress.env('password'));
+            this.clickLogin();
+            this.isLoggedIn(Cypress.env('username'));
+            cy.wait(2000);
+            cy.percySnapshot('Landing Page');
+        })
+        */
+
+        
         this.typeUsername(Cypress.env('email'));
         this.typePassword(Cypress.env('password'));
         this.clickLogin();
         this.isLoggedIn(Cypress.env('username'));
         cy.wait(2000);
         cy.percySnapshot('Landing Page');
+
     }
 }
 
