@@ -1,8 +1,6 @@
-import  BasePage from '../../support/page-objects/Base_Page'
+export default class LoginPage{
 
-class LoginPage extends BasePage{
-
-    static elements = {
+    elements = {
         usernameInput: () => cy.xpath('//input[@placeholder=\'Email\']'),
         passwordInput: () => cy.xpath('//input[@placeholder=\'Password\']'),
         loginBtn: () => cy.get('#kt_login_signin_submit'),
@@ -10,28 +8,28 @@ class LoginPage extends BasePage{
         loggedUser: () => cy.get('.text-dark-50')
     }
 
-    static navigateToLoginPage() {
+    navigateToLoginPage() {
         cy.visit('/');
         cy.percySnapshot('Login Page');
     }
     
-    static typeUsername(username){
+    typeUsername(username){
         this.elements.usernameInput().type(username);
     }
 
-    static typePassword(password){
+    typePassword(password){
         this.elements.passwordInput().type(password);
     }
 
-    static clickLogin(){
+    clickLogin(){
         this.elements.loginBtn().click();
     }
 
-    static getErrorMessage(text){
+    getErrorMessage(text){
         this.elements.errorMessage().should('include.text', text);
     }
 
-    static isLoggedIn(user){
+    isLoggedIn(user){
         this.elements.loggedUser().should('include.text', user);
         cy.url().should('contain', Cypress.env('landing_page'));
         cy.url().should('include', Cypress.env('landing_page'));
@@ -39,7 +37,7 @@ class LoginPage extends BasePage{
         cy.percySnapshot('Golbal Admin Page');
     }
 
-    static logInSucessfully(){
+    logInSucessfully(){
 
         this.navigateToLoginPage();
 
@@ -75,5 +73,3 @@ class LoginPage extends BasePage{
  
     }
 }
-
-export default LoginPage;

@@ -1,12 +1,11 @@
-class BasePage{
+export default class BasePage{
     
-    static elements = {
+    elements = {
         a_normalize_link : (text) => cy.xpath('//a[normalize-space()=\'' + text + '\']'),
     }
 
-    static clickOnNormalizeLink(text){
+    clickOnNormalizeLink(text){
         this.elements.a_normalize_link(text).click();
     }
     
 }
-export default BasePage;
