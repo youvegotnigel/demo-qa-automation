@@ -9,8 +9,8 @@ Feature: Contract Scenarios
         And User enter details as below:
             | Name   | Description[textarea] | Product[suggest] | Add new users[suggest] | Start Date  | End Date  |
             | <name> | <description>         | <product>        | <user>                 | <startDate> | <endDate> |
-        And User click on the "Add" link
-        And User click on the "Create" link
+        #And User click on the "Add" link
+        #And User click on the "Create" link
 
         Examples:
             | name            | description      | product | user              | startDate  | endDate     |
