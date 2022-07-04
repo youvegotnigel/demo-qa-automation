@@ -13,7 +13,6 @@ And('User click on the {string} link',(text)=>{
 
 And('User enter details as below:',(dataTable)=>{
     dataTable.hashes().forEach(element => {
-        loginPage.typeUsername(element.username);
-        loginPage.typePassword(element.password);
+        
     });
 });
