@@ -72,7 +72,7 @@ class LoginPage extends BasePage{
         this.isLoggedIn(Cypress.env('username'));
         cy.wait(2000);
         cy.percySnapshot('Landing Page');
-
+ 
     }
 }
 
