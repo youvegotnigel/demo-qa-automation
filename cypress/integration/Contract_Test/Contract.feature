@@ -13,5 +13,5 @@ Feature: Contract Scenarios
         When User click on the "Create" button
 
         Examples:
-            | name       | description        | product | user              | startDate  | endDate     |
-            | Sam Wilson | Cypress Automation | Covid   | Active Automation | 1 May 2021 | 30 May 2021 |
+            | name       | description        | product | user              | startDate  | endDate |
+            | Sam Wilson | Cypress Automation | Covid   | Active Automation | 1 May 2021 | today   |
