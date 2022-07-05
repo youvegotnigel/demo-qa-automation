@@ -18,6 +18,7 @@ export default class BasePage {
     clickOnNormalizeLink(text) {
         this.elements.a_normalize_link(text).click();
     }
+    
     clickOnNormalizeButton(text) {
         this.elements.button_normalize_link(text).click();
     }

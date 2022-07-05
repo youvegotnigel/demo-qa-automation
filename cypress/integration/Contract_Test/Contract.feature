@@ -10,7 +10,7 @@ Feature: Contract Scenarios
             | Name   | Description[textarea] | productId[suggest] | Add new users[suggest] | Start Date[date] | End Date[date] |
             | <name> | <description>         | <product>          | <user>                 | <startDate>      | <endDate>      |
         And User click on the "Add" link
-        And User click on the "Create" button
+        When User click on the "Create" button
 
         Examples:
             | name       | description        | product | user              | startDate  | endDate     |
