@@ -10,6 +10,7 @@
     "password": "test",
     "username": "Diego Duarte",
     "landing_page": "global-admin/contracts",
+    "timeZone": "Asia/Colombo",
     "TAGS": "@stage and not @ignore"
   },
   "projectId": "i24984"
