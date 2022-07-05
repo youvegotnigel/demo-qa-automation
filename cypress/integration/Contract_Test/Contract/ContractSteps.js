@@ -13,6 +13,10 @@ And('User click on the {string} link',(text)=>{
     basePage.clickOnNormalizeLink(text)
 });
 
+And('User click on the {string} button',(text)=>{
+    basePage.clickOnNormalizeButton(text)
+});
+
 And('User enter details as below:',(dataTable)=>{
 
     const dataArray = dataTable.raw()
