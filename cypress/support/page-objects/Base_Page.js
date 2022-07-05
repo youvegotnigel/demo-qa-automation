@@ -1,3 +1,6 @@
+import  DateTime from '../../support/keywords/DateTime'
+
+const dateTime = new DateTime()
 export default class BasePage {
 
     elements = {
@@ -18,7 +21,7 @@ export default class BasePage {
     clickOnNormalizeLink(text) {
         this.elements.a_normalize_link(text).click();
     }
-    
+
     clickOnNormalizeButton(text) {
         this.elements.button_normalize_link(text).click();
     }
@@ -76,6 +79,7 @@ export default class BasePage {
         /*
         1. format answer to this format 1 May 2021 ===> D MMM yyyy
         */
+        answer = dateTime.formatIfDatetime(answer)
 
         let date_parts = answer.split(' ')
         let day = date_parts[0]
