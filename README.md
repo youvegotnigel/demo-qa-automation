@@ -16,6 +16,9 @@ npm install multiple-cucumber-html-reporter
 npm install --save-dev cypress-cucumber-attach-screenshots-to-failed-steps 
 npm i @shelex/cypress-allure-plugin
 npm install --save-dev @percy/cli @percy/cypress
+
+npm i moment
+npm i moment-timezone
 ```  
 
 ## Cypress Help
