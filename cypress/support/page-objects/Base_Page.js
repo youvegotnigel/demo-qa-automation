@@ -10,7 +10,7 @@ export default class BasePage {
         textarea_field: (text, index) => cy.xpath('(//*[contains(text(),\'' + text + '\')])[' + index + ']/following-sibling::textarea[1]'),
         input_field: (text, index) => cy.xpath('(//*[contains(text(),\'' + text + '\')])[' + index + ']/following-sibling::input[1]'),
         input_suggest_field: (text, index) => cy.xpath('(//*[contains(@formcontrolname,\''+text+'\')])['+index+']/descendant-or-self::input[1]|(//div[@class=\'ng-placeholder\' and contains(text(),\''+text+'\')])['+index+']/following-sibling::div/input[1]'),
-        suggest_field: (text) => cy.xpath('(//span[contains(@class,\'ng-star-inserted\') and contains(text(),\''+ text +'\')])[1]|(//div[contains(@class,\'ng-option ng-option-marked ng-star-inserted\')])[1]'), 
+        suggest_field: (text) => cy.xpath('(//span[contains(@class,\'ng-option\') and @ng-reflect-ng-item-label=\''+text+'\'])[1]|(//div[contains(@class,\'ng-option ng-option-marked ng-star-inserted\')])[1]'), 
 
         div_calender: (text, index) => cy.xpath('(//label[contains(text(),\''+text+'\')])['+index+']/following-sibling::div/div'),
         select_year: () => cy.xpath('(//select[@title= "Select year"])[1]'),
@@ -58,14 +58,14 @@ export default class BasePage {
             let valueAndIndex = getValueAndIndex(question)
             console.log("Field_name : " + valueAndIndex[0])
             console.log("Index : " + valueAndIndex[1])
-            this.elements.input_suggest_field(valueAndIndex[0], valueAndIndex[1]).type(answer);
+            this.elements.input_suggest_field(valueAndIndex[0], valueAndIndex[1]).type(answer)
             this.elements.suggest_field(answer).click();
 
         } else {
             let valueAndIndex = getValueAndIndex(question)
             console.log("Field_name : " + valueAndIndex[0])
             console.log("Index : 1")
-            this.elements.input_suggest_field(valueAndIndex[0], 1).type(answer);
+            this.elements.input_suggest_field(valueAndIndex[0], 1).type(answer)
             this.elements.suggest_field(answer).click();
         }
     }
