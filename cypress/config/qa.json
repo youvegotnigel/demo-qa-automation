@@ -4,6 +4,7 @@
         "password":"test",
         "username": "Madhu Bhor",
         "landing_page": "global-admin/contracts",
+        "timeZone": "Asia/Colombo",
         "TAGS": "@stage and not @ignore"
     }
 }

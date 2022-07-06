@@ -1,6 +1,7 @@
 import { Given, And } from "cypress-cucumber-preprocessor/steps"
-import  loginPage from '../../../support/page-objects/Login_Page'
+import  Login_Page from '../../../support/page-objects/Login_Page'
 
+const loginPage = new Login_Page()
 
 Given('User is logged into TS Admin',()=>{
     loginPage.logInSucessfully();

@@ -7,11 +7,11 @@ Feature: Contract Scenarios
     Scenario Outline: Create a contract
         Given User click on the 'Add New Contract' link
         And User enter details as below:
-            | Name   | Description[textarea] | Product[suggest] | Add new users[suggest] | Start Date  | End Date  |
-            | <name> | <description>         | <product>        | <user>                 | <startDate> | <endDate> |
-        #And User click on the "Add" link
-        #And User click on the "Create" link
+            | Name   | Description[textarea] | productId[suggest] | Add new users[suggest] | Start Date[date] | End Date[date] |
+            | <name> | <description>         | <product>          | <user>                 | <startDate>      | <endDate>      |
+        And User click on the "Add" link
+        When User click on the "Create" button
 
         Examples:
-            | name            | description      | product | user              | startDate  | endDate     |
-            | _dummy_ts_user1 | dummy contract 1 | Action  | Active Automation | 1 May 2021 | 30 May 2021 |
+            | name       | description        | product | user              | startDate  | endDate |
+            | Sam Wilson | Cypress Automation | Covid   | Active Automation | 1 May 2021 | today   |
