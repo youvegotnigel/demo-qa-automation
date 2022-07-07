@@ -1,4 +1,4 @@
-import  DateTime from '../../support/keywords/DateTime'
+import DateTime from '../../support/keywords/DateTime'
 
 const moment = require('moment-timezone');
 const dateTime = new DateTime()
@@ -12,7 +12,7 @@ export default class MuiPage {
         calendar_left_arrow: () => cy.xpath('(//button[@aria-label="Previous month"])[1]'),
         calendar_right_arrow: () => cy.xpath('(//button[@aria-label="Next month"])[1]'),
         input_date_selected: (text) => cy.xpath('(//label[contains(text(),\'' + text + '\')]/../div/input)[1]'),
-        calendar_date: (text) => cy.xpath('(//div[@class=\'MuiCalendarPicker-root css-1brzq0m\'])[1]//button[normalize-space()=\''+text+'\']')
+        calendar_date: (text) => cy.xpath('(//div[@class=\'MuiCalendarPicker-root css-1brzq0m\'])[1]//button[normalize-space()=\'' + text + '\']')
     }
 
     navigateToDatePickerPage() {
@@ -37,9 +37,16 @@ export default class MuiPage {
 
     verifySelectedDate(question, answer) {
         answer = dateTime.formatIfDatetime(answer)
-        //08/03/2014
-        let expected_value = moment(answer, 'DD/MM/YYYY')
-        this.elements.input_date_selected(question).invoke('attr', 'value').should('contain', expected_value)
+
+        this.elements.input_date_selected(question).invoke('attr', 'value').then(date1 => {
+
+            let date2 = moment(answer).format('MM/DD/YYYY').toString()
+
+            console.log("Date 1 :: " + date1)
+            console.log("Date 2 :: " + date2)
+
+            expect(date1).to.be.equal(date2)
+        })
     }
 
     setDate(answer) {
@@ -47,29 +54,20 @@ export default class MuiPage {
         answer = dateTime.formatIfDatetime(answer)
         let day = answer.split(' ')[0]
 
-        //let end_date = moment(answer, 'MMMM YYYY')
-        let current_month_year = ''
+        this.elements.calendar_period().invoke('text').then(month_year => {
+            console.log("MONTH YEAR :: " + month_year)
 
-        this.elements.calendar_period().invoke('text').then(text => {
-            current_month_year = text.trim()
+            let monthsAway = calculate_months_away(month_year, answer)
+            let arrow = monthsAway < 0 ? this.elements.calendar_left_arrow() : this.elements.calendar_right_arrow();
+
+            for (let i = 0; i < Math.abs(monthsAway); i++) {
+                arrow.click()
+            }
+
+            cy.wait(1500)
+            this.elements.calendar_date(day).click()
+
         })
-
-        //let start_date = moment(start_date_text, 'MMMM YYYY')
-
-        let monthsAway = calculate_months_away(current_month_year, answer)
-        let arrow = monthsAway < 0 ? this.elements.calendar_left_arrow() : this.elements.calendar_right_arrow();
-
-        for(let i = 0; i < Math.abs(monthsAway); i++){
-
-            // if(monthsAway>0){
-            //     this.elements.calendar_right_arrow().click()
-            // }else{
-            //     this.elements.calendar_left_arrow().click()
-            // }
-            arrow.click()
-        }
-
-        this.elements.calendar_date(day).click()
     }
 }
 
