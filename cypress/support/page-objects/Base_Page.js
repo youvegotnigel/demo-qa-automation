@@ -73,12 +73,6 @@ export default class BasePage {
 
     enterValueDate(question, answer) {
 
-        //question = lable = Start Date
-        //answer = date = 1 May 2021
-
-        /*
-        1. format answer to this format 1 May 2021 ===> D MMM yyyy
-        */
         answer = dateTime.formatIfDatetime(answer)
 
         let date_parts = answer.split(' ')

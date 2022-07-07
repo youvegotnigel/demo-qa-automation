@@ -1,5 +1,6 @@
 {
   "baseUrl": "https://qa.eshrewd.net/admin/auth/login",
+  "videoCompression":1,
   "testFiles": [
     "**/*.{feature,features}"
   ],
