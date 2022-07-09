@@ -1,9 +1,11 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps"
 import  Base_Page from '../../../support/page-objects/Base_Page'
 import  MUI_Page from '../../../support/page-objects/MUI_Page'
+import  MuiTable from '../../../support/keywords/MuiTable'
 
 const basePage = new Base_Page()
 const muiPage = new MUI_Page()
+const muiTable = new MuiTable()
 
 Given('User is navigated to data grid page',()=>{
     muiPage.navigateToDataGridPage()
@@ -46,4 +48,12 @@ When('User uncheck checkbox for {string} in table {string}',(question, tableName
 
 Then('System should display {string}',(answer)=>{
     basePage.isDivTextDisplayed(answer)
+});
+
+And('User navigates to previous page in table',()=>{
+    muiTable.clickOnTablePreviousPageButton()
+});
+
+And('User navigates to next page in table',()=>{
+    muiTable.clickOnTableNextPageButton()
 });

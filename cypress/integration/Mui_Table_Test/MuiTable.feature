@@ -43,7 +43,11 @@ Feature: MUI Table Scenarios
         When User set checkbox for 'ID' in table 'grid'
         And User uncheck checkbox for 'Arya' in table 'grid'
         And User uncheck checkbox for 'Jon Snow' in table 'grid'
-        Then System should display '7 rows selected'
+        And User navigates to next page in table
+        And User uncheck checkbox for '8' in table 'grid'
+        And User navigates to previous page in table
+        And User uncheck checkbox for 'Daenerys' in table 'grid'
+        Then System should display '5 rows selected'
 
 
 #Verify Click on a cell
