@@ -52,7 +52,5 @@ Feature: MUI Table Scenarios
 
 #Verify Click on a cell
 
-#Verify click on check box
-
 # Verify acceding decening order
 

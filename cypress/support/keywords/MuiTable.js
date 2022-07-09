@@ -4,7 +4,8 @@ export default class MuiTable {
     elements = {
         data_grid: (role, index) => '(//div[@role=\''+role+'\'])['+index+']',
         table_button_previous: () => cy.xpath('(//button[@title=\'Go to previous page\'])[1]'),
-        table_button_next: () => cy.xpath('(//button[@title=\'Go to next page\'])[1]')
+        table_button_next: () => cy.xpath('(//button[@title=\'Go to next page\'])[1]'),
+        table_cell: (text) => cy.xpath('(//div[@class=\'MuiDataGrid-cellContent\' and (normalize-space(.)=\''+text+'\')])[1]')
     }
 
 
