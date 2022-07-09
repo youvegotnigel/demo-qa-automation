@@ -5,6 +5,7 @@ export default class BasePage {
 
     elements = {
         a_normalize_link: (text) => cy.xpath('(//a[normalize-space()=\'' + text + '\'])[1]'),
+        div_normalize_link: (text) => cy.xpath('(//div[normalize-space()=\'' + text + '\'])[1]'),
         button_normalize_link: (text) => cy.xpath('(//button[normalize-space()=\''+text+'\'])[1]'),
 
         textarea_field: (text, index) => cy.xpath('(//*[contains(text(),\'' + text + '\')])[' + index + ']/following-sibling::textarea[1]'),
@@ -24,6 +25,10 @@ export default class BasePage {
 
     clickOnNormalizeButton(text) {
         this.elements.button_normalize_link(text).click();
+    }
+
+    isDivTextDisplayed(text) {
+        this.elements.div_normalize_link(text).should('be.visible')
     }
 
     enterValueInput(question, answer) {

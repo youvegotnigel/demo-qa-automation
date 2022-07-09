@@ -79,8 +79,17 @@ export default class MuiPage {
     verifyDataGridValues(tableName, index, cellInfo){
 
         let xpath = muiTable.getTableRowXpath(tableName, index, cellInfo)
-        muiTable.scrollTableToView(tableName, index)
         cy.xpath(xpath).should('exist')
+    }
+
+    setTableCheckBox(tableName, index, cellInfo){
+        let xpath = muiTable.getTableRowCheckBoxXpath(tableName, index, cellInfo)
+        cy.xpath(xpath).check()
+    }
+
+    unsetTableCheckBox(tableName, index, cellInfo){
+        let xpath = muiTable.getTableRowCheckBoxXpath(tableName, index, cellInfo)
+        cy.xpath(xpath).uncheck()
     }
 }
 

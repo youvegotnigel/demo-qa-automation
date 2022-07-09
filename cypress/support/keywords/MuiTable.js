@@ -17,6 +17,12 @@ export default class MuiTable {
         
     }
 
+    getTableRowCheckBoxXpath(tableName, index, cellInfo){
+        let values = prepareValues(cellInfo)
+        this.scrollTableToView(tableName, index)
+        return this.elements.data_grid(tableName, index) + prepareRowXpath(values) + '/descendant-or-self::input[@type=\'checkbox\']'
+    }
+
     scrollTableToView(grid, index){
         cy.xpath(this.elements.data_grid(grid, index)).scrollIntoView()
     }
