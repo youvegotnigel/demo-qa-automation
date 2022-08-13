@@ -77,6 +77,6 @@ cypress/videos
 cypress/screenshots
 
 # Cypress examples
-cypress/integration/1-getting-started
-cypress/integration/2-advanced-examples
+cypress/e2e/1-getting-started
+cypress/e2e/2-advanced-examples
 
