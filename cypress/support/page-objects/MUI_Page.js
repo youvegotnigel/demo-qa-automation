@@ -1,7 +1,9 @@
 import DateTime from '../../support/keywords/DateTime'
+import MuiTable from '../../support/keywords/MuiTable'
 
 const moment = require('moment-timezone');
 const dateTime = new DateTime()
+const muiTable = new MuiTable()
 
 export default class MuiPage {
 
@@ -17,6 +19,10 @@ export default class MuiPage {
 
     navigateToDatePickerPage() {
         cy.visit('https://mui.com/x/react-date-pickers/getting-started/')
+    }
+
+    navigateToDataGridPage() {
+        cy.visit('https://mui.com/x/react-data-grid/')
     }
 
     openCalendar(text) {
@@ -68,6 +74,22 @@ export default class MuiPage {
             this.elements.calendar_date(day).click()
 
         })
+    }
+
+    verifyDataGridValues(tableName, index, cellInfo){
+
+        let xpath = muiTable.getTableRowXpath(tableName, index, cellInfo)
+        cy.xpath(xpath).should('exist')
+    }
+
+    setTableCheckBox(tableName, index, cellInfo){
+        let xpath = muiTable.getTableRowCheckBoxXpath(tableName, index, cellInfo)
+        cy.xpath(xpath).check()
+    }
+
+    unsetTableCheckBox(tableName, index, cellInfo){
+        let xpath = muiTable.getTableRowCheckBoxXpath(tableName, index, cellInfo)
+        cy.xpath(xpath).uncheck()
     }
 }
 
