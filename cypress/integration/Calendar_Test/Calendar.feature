@@ -10,4 +10,4 @@ Feature: Calendar Scenarios
             | date        |
             | 3 May 2016  |
             | 19 Jun 2012 |
-            | today       |
+            | previous+1  |

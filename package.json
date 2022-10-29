@@ -19,13 +19,13 @@
     "cypress": "^9.7.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-downloadfile": "^1.2.2",
-    "cypress-xpath": "^2.0.0",
     "moment": "^2.29.3",
     "moment-timezone": "^0.5.34",
     "multiple-cucumber-html-reporter": "^1.21.4"
   },
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.2.1",
+    "@cypress/xpath": "^2.0.3",
     "@percy/cli": "^1.5.1",
     "@percy/cypress": "^3.1.2",
     "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
